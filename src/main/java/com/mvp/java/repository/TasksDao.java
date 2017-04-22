@@ -61,5 +61,19 @@ public class TasksDao {
         return null;
     }
 
+    public boolean runScheduler(Date fromDate, Date tillDate) {
+        StoredProcedureQuery query = entityManager.createNamedStoredProcedureQuery("usp_CalculateCompensation");
+        query.setParameter("PayPeriodStartDate", fromDate);
+        query.setParameter("PayPeriodEndDate", tillDate);
+
+        boolean status = true;   // true means issue
+        try {
+            status = query.execute();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+         return status?false : true;
+    }
+
 
 }

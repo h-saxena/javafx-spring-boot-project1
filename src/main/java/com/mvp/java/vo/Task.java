@@ -19,6 +19,13 @@ import java.util.Date;
                 ,@StoredProcedureParameter(mode = ParameterMode.IN, name = "RecurDay", type = String.class)
                 ,@StoredProcedureParameter(mode = ParameterMode.INOUT, name = "TaskSchedulerID", type = Integer.class)
         })
+
+        , @NamedStoredProcedureQuery(name = "usp_CalculateCompensation", procedureName = "usp_CalculateCompensation",
+        parameters = {
+                @StoredProcedureParameter(mode = ParameterMode.IN, name = "PayPeriodStartDate", type = Date.class)
+                ,@StoredProcedureParameter(mode = ParameterMode.IN, name = "PayPeriodEndDate", type = Date.class)
+        })
+
 })
 @Entity
 public class Task {

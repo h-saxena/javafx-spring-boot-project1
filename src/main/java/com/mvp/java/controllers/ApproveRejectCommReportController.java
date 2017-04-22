@@ -157,6 +157,8 @@ public class ApproveRejectCommReportController {
 
             if(success) {
                 AppDialogHelper.showDialog("Success !", Arrays.asList("Approve / Rejection statuses are saved Successfully"));
+                resetView();
+                loadUI();
             }
             else
                 AppDialogHelper.showErrorDialog(Arrays.asList("Unable to save the Approve / Rejection statuses"));
