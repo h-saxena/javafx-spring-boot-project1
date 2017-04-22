@@ -17,7 +17,6 @@ public class CompensationPlanDao {
     EntityManager entityManager;
 
    public List<CompensationPlan> getAllCompensationPlans() {
-       System.out.println("DAO: get All Comp Plans ....");
        Query query = entityManager.createNamedStoredProcedureQuery("usp_Search_ComplensationPlan");
        query.setParameter("PlanName", "");
        query.setParameter("StartPageNumber", 1);

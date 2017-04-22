@@ -1,5 +1,6 @@
 package com.mvp.java;
 
+import com.mvp.java.repository.ApproveRejectCommReportDao;
 import com.mvp.java.repository.CommonsDao;
 import com.mvp.java.repository.SalesHierarchyDao;
 import com.mvp.java.repository.TasksDao;
@@ -28,7 +29,19 @@ public class DaoTest {
     @Autowired
     SalesHierarchyDao salesHierarchyDao;
 
+    @Autowired
+    ApproveRejectCommReportDao approveRejectCommReportDao;
+
+
     @Test
+    public void salesReportTest() {
+        List r1 =  approveRejectCommReportDao.getSalesReports();
+
+        List r2 =  approveRejectCommReportDao.getSalesReportData(50);
+        approveRejectCommReportDao.toString();
+    }
+
+    //@Test
     public void commonDataLoadTest() {
         List r1 =  commonsDao.getDesignations();
         List r2 =  commonsDao.getRegions();
