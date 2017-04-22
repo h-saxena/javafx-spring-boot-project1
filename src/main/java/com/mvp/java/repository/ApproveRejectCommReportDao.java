@@ -1,10 +1,9 @@
 package com.mvp.java.repository;
 
-import com.mvp.java.vo.CompensationCriteria;
 import com.mvp.java.vo.CompensationJob;
 import com.mvp.java.vo.CompensationJobData;
-import com.mvp.java.vo.CompensationPlan;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -30,6 +29,19 @@ public class ApproveRejectCommReportDao {
         Query query = entityManager.createNamedStoredProcedureQuery("usp_ViewCompensationReportForApprovalOrRejection");
         query.setParameter("JobID", jobId);
         return query.getResultList();
+
+    }
+
+    public boolean saveCompensationApprovalRejectionStatus(Integer jobId, String compStatusXml, String remarks) {
+
+        StoredProcedureQuery query = entityManager.createNamedStoredProcedureQuery("usp_ApproveRejectCompensation_U");
+        query.setParameter("JobID", jobId);
+        query.setParameter("CompensationStatusXml", compStatusXml);
+        query.setParameter("Remarks", StringUtils.isEmpty(remarks) ? "" : remarks);
+
+        Boolean anyError = query.execute();
+
+        return anyError?false : true;
 
     }
 

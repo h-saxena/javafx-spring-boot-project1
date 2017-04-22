@@ -13,18 +13,13 @@ import javax.persistence.*;
                 @StoredProcedureParameter(mode = ParameterMode.IN, name = "JobID", type = Integer.class)
         })
 
-//        @NamedStoredProcedureQuery(name = "usp_CompensationPlan_IU", procedureName = "usp_CompensationPlan_IU"
-//                ,
-//                parameters = {
-//                        @StoredProcedureParameter(mode = ParameterMode.IN, name = "CompensationPlanName", type = String.class)
-//                        ,@StoredProcedureParameter(mode = ParameterMode.IN, name = "CompensationPlanType", type = String.class)
-//                        ,@StoredProcedureParameter(mode = ParameterMode.IN, name = "ProductID", type = Integer.class)
-//                        ,@StoredProcedureParameter(mode = ParameterMode.IN, name = "ProductTypeID", type = Integer.class)
-//                        ,@StoredProcedureParameter(mode = ParameterMode.IN, name = "PublishPlan", type = Boolean.class)
-//                        ,@StoredProcedureParameter(mode = ParameterMode.IN, name = "UserID", type = String.class)
-//                        ,@StoredProcedureParameter(mode = ParameterMode.IN, name = "CompensationDataXml", type = String.class)
-//                        ,@StoredProcedureParameter(mode = ParameterMode.INOUT, name = "CompensationPlanID", type = Integer.class)
-//                })
+        ,@NamedStoredProcedureQuery(name = "usp_ApproveRejectCompensation_U", procedureName = "usp_ApproveRejectCompensation_U"
+                ,
+                parameters = {
+                        @StoredProcedureParameter(mode = ParameterMode.IN, name = "JobID", type = Integer.class)
+                        ,@StoredProcedureParameter(mode = ParameterMode.IN, name = "CompensationStatusXml", type = String.class)
+                        ,@StoredProcedureParameter(mode = ParameterMode.IN, name = "Remarks", type = String.class)
+                })
 
 })
 @Entity
