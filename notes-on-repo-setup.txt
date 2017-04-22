@@ -1,0 +1,11 @@
+- first created the repo on git hub with the name javafx-spring-boot-project1
+- locally added local git repo in the existing maven based project
+- git remote add origin https://github.com/h-saxena/javafx-spring-boot-project1.git
+- And changes committed to local git repo
+-  git branch --set-upstream-to=origin/master master
+-  git pull --rebase
+- before actual commit make sure to update git global config for author and email.
+
+
+Some other useful commands:
+git commit --amend --author="Hemant Saxena <java.hemant@gmail.com>"
