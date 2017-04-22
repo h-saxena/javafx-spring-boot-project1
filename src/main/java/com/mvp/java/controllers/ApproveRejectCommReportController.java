@@ -111,6 +111,7 @@ public class ApproveRejectCommReportController {
 
         txtDateCreated.setText(selectReport.getCreateDate());
         txtForPeriod.setText(selectReport.getForPeriod());
+        taRemarks.setText(selectReport.getRemarks());
 
         List<CompensationJobData> reportDataList = approveRejectCommReportDao.getSalesReportData(selectReport.getId());
         ObservableList<CompensationJobData> obList =  FXCollections.observableArrayList(reportDataList);

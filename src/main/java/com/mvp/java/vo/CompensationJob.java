@@ -35,6 +35,8 @@ public class CompensationJob {
     String createDate;
     @Column(name = "COMPENSATION_JOB_CRITERIA")
     String forPeriod;
+    @Column(name = "COMPENSATION_JOB_REMARKS")
+    String remarks;
 
     public Integer getId() {
         return id;
@@ -58,6 +60,14 @@ public class CompensationJob {
 
     public void setForPeriod(String forPeriod) {
         this.forPeriod = forPeriod;
+    }
+
+    public String getRemarks() {
+        return remarks;
+    }
+
+    public void setRemarks(String remarks) {
+        this.remarks = remarks;
     }
 
     @Override
