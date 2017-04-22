@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="RunSchedulerNode" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="411.0" prefWidth="624.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mvp.java.controllers.RunSchedulerController">
+   <children>
+      <Label layoutX="30.0" layoutY="173.0" text="From:" />
+      <DatePicker fx:id="dtFrom" layoutX="69.0" layoutY="168.0" prefHeight="27.0" prefWidth="128.0" />
+      <Label layoutX="264.0" layoutY="174.0" text="Till:" />
+      <DatePicker fx:id="dtTill" layoutX="289.0" layoutY="170.0" prefHeight="27.0" prefWidth="128.0" />
+      <Label layoutX="28.0" layoutY="127.0" prefHeight="17.0" prefWidth="325.0" text="Please the period for which scheduler will run for:" />
+      <Button fx:id="btRun" layoutX="369.0" layoutY="241.0" mnemonicParsing="false" onAction="#runSchedule" text="Run" />
+      <Label alignment="CENTER" layoutX="127.0" layoutY="7.0" prefHeight="21.0" prefWidth="325.0" style="-fx-background-color: lightgrey;" text="Run Scheduler" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="27.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>

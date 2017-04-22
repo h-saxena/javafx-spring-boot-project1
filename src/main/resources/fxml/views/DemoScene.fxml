@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<Pane fx:id="DemoNode" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #b8f2ec;" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" >
+   <children>
+      <Circle fill="#b93d3d" layoutX="442.0" layoutY="194.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
+      <Separator layoutX="10.0" layoutY="496.0" prefHeight="13.0" prefWidth="780.0" style="-fx-border-color: #e88d04; -fx-background-color: #e0aaa3;" />
+      <Circle fill="#ff911f" layoutX="320.0" layoutY="306.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#218cff" layoutX="503.0" layoutY="331.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
+      <Label alignment="CENTER" layoutX="274.0" layoutY="14.0" prefHeight="50.0" prefWidth="290.0" text="Welcome To SCMS" textAlignment="CENTER">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>

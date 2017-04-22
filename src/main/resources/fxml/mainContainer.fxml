@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+
+<BorderPane fx:id="containerBorderPane" prefHeight="548.0" prefWidth="750.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mvp.java.controllers.SubContainerController">
+<center>
+    <SplitPane dividerPositions="0.3064516129032258" BorderPane.alignment="CENTER">
+        <items>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                <children>
+                    <BorderPane fx:id="menuBorderPane" layoutX="-13.0" layoutY="-36.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: lightgrey;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <top>
+                            <AnchorPane prefHeight="29.0" prefWidth="264.0" style="-fx-background-color: lightblue; -fx-border-color: black;" BorderPane.alignment="CENTER">
+                                <children>
+                                    <Label alignment="CENTER" layoutX="3.0" layoutY="3.0" prefHeight="26.0" prefWidth="260.0" style="-fx-background-color: lightgrey;" text="Menu" textAlignment="CENTER" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0" />
+                                </children>
+                            </AnchorPane>
+                        </top>
+                     <center>
+                        <Pane prefHeight="319.0" prefWidth="194.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Label layoutX="25.0" layoutY="22.0" text="Data Collection" />
+                                    <Hyperlink fx:id="TaskScheduler" layoutX="47.0" layoutY="37.0" onAction="#menuItemClicked" text="Task Scheduler" />
+                                    <Hyperlink fx:id="SalesHierarchy" layoutX="20.0" layoutY="102.0" onAction="#menuItemClicked" text="Sale Hierarchy" />
+                              <Hyperlink fx:id="RunScheduler" layoutX="46.0" layoutY="62.0" onAction="#menuItemClicked" text="Run Scheduler" />
+                                    <Hyperlink fx:id="CompensationPlan" layoutX="19.0" layoutY="144.0" onAction="#menuItemClicked" text="Compensation Plan" />
+                                    <Hyperlink fx:id="ApproveRejectCommReport" layoutX="20.0" layoutY="187.0" onAction="#menuItemClicked" text="Approve/Reject Compensation Report" />
+                                    <Hyperlink fx:id="PayoutComm" layoutX="18.0" layoutY="228.0" onAction="#menuItemClicked" text="Payout Commission" />
+                              <Label layoutX="23.0" layoutY="267.0" text="Report" />
+                                    <Hyperlink fx:id="SalesCommReport" layoutX="42.0" layoutY="279.0" onAction="#menuItemClicked" text="Commission Report" />
+                           </children>
+                        </Pane>
+                     </center>
+                    </BorderPane>
+                </children></AnchorPane>
+            <BorderPane prefHeight="200.0" prefWidth="200.0">
+                <center>
+                    <ScrollPane fx:id="contentScrollPaneContainer" prefHeight="200.0" prefWidth="200.0">
+                        <content>
+                            <StackPane fx:id="stackPaneContainer" alignment="TOP_LEFT" prefHeight="150.0" prefWidth="200.0">
+                                <children>
+                                    <fx:include source="views/SalesCommReport.fxml" />
+                                    <fx:include source="views/PayoutComm.fxml" />
+                                    <fx:include source="views/ApproveRejectCommReport.fxml" />
+                                    <fx:include source="views/RunScheduler.fxml" />
+
+                                    <fx:include source="views/CompensationPlan.fxml" />
+                                    <fx:include source="views/SalesHierarchy.fxml" />
+                                    <fx:include source="views/TaskScheduler.fxml" />
+                                    <fx:include source="views/DemoScene.fxml" />
+                                </children>
+                            </StackPane>
+
+                        </content>
+                    </ScrollPane>
+                </center>
+                <top>
+                    <AnchorPane prefHeight="25.0" prefWidth="326.0" style="-fx-background-color: lightgrey;" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label layoutX="277.0" layoutY="4.0" text="Hello Admin !" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="277.0" AnchorPane.rightAnchor="156.0" AnchorPane.topAnchor="4.0" />
+                        <Label layoutX="388.0" layoutY="4.0" text="Messages" textFill="#dd0c0c" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="388.0" AnchorPane.rightAnchor="65.0" AnchorPane.topAnchor="4.0" />
+                        <Label layoutX="467.0" layoutY="4.0" prefHeight="17.0" prefWidth="41.0" text="Alerts" textFill="#f50c0c" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="467.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="4.0" />
+                     </children></AnchorPane>
+                </top>
+            </BorderPane>
+        </items>
+    </SplitPane>
+</center>
+<top>
+    <HBox alignment="CENTER" prefHeight="55.0" prefWidth="600.0" style="-fx-background-color: lightblue;" BorderPane.alignment="CENTER">
+        <children>
+            <Label text="Sales Commission Management System" />
+        </children>
+    </HBox>
+</top>
+   <bottom>
+      <Pane prefHeight="32.0" prefWidth="622.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER" />
+   </bottom>
+</BorderPane>

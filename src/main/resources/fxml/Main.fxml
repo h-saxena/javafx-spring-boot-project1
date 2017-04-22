@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--<VBox prefHeight="602.0" prefWidth="803.0" xmlns="http://javafx.com/javafx/8"
+      xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      &lt;!&ndash;<fx:include fx:id="TabPane" source="tabs/TabPane.fxml" />&ndash;&gt;
+       <fx:include fx:id="TabPane" source="mainContainer.fxml" />
+   </children>
+</VBox>-->
+<?import javafx.scene.layout.BorderPane?>
+<BorderPane prefHeight="602.0" prefWidth="803.0" xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1">
+    <center>
+        <fx:include fx:id="TabPane" source="mainContainer.fxml" />
+    </center>
+</BorderPane>

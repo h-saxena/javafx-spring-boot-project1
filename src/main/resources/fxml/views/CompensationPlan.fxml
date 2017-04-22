@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="CompensationPlanNode" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="498.0" prefWidth="731.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mvp.java.controllers.CompensationPlanController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dad8b7" height="246.0" layoutX="15.0" layoutY="202.0" opacity="0.19" stroke="BLACK" strokeType="INSIDE" width="696.0" />
+      <Label alignment="CENTER" layoutX="180.0" layoutY="9.0" prefHeight="21.0" prefWidth="325.0" style="-fx-background-color: lightgrey;" text="Compensation Plan" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="27.0" />
+         </font>
+      </Label>
+      <Label layoutX="19.0" layoutY="124.0" prefHeight="21.0" prefWidth="88.0" text="Plan Name:" />
+      <Label layoutX="18.0" layoutY="162.0" prefHeight="21.0" prefWidth="88.0" text="Product:" />
+      <Label layoutX="350.0" layoutY="124.0" prefHeight="21.0" prefWidth="88.0" text="Plan Type:" />
+      <Label layoutX="350.0" layoutY="162.0" prefHeight="21.0" prefWidth="88.0" text="Product Type:" />
+      <Button fx:id="btSave" layoutX="605.0" layoutY="453.0" mnemonicParsing="false" onAction="#saveCompensationPlan" text="Save" />
+      <ComboBox fx:id="cbProduct" layoutX="115.0" layoutY="159.0" prefHeight="27.0" prefWidth="167.0" promptText="Select .." />
+      <ComboBox fx:id="cbProductType" layoutX="446.0" layoutY="159.0" prefHeight="27.0" prefWidth="167.0" promptText="Select .." />
+      <CheckBox fx:id="chkPublishPlan" layoutX="440.0" layoutY="457.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="130.0" text="Publish Plan" />
+      <RadioButton fx:id="rdFlat" layoutX="450.0" layoutY="125.0" mnemonicParsing="false" onAction="#flatOptionSelected" text="Flat">
+         <toggleGroup>
+            <ToggleGroup fx:id="planTypeGroup" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="rdTiered" layoutX="514.0" layoutY="125.0" mnemonicParsing="false" onAction="#tieredOptionSelected" text="Tiered" toggleGroup="$planTypeGroup" />
+      <ComboBox fx:id="cbSelectPlan" layoutX="21.0" layoutY="66.0" onAction="#existingPlanSelected" prefHeight="27.0" prefWidth="360.0" promptText="Choose an existing Plan ..." />
+      <Label layoutX="423.0" layoutY="73.0" text="OR">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <CheckBox fx:id="chkCreateNew" layoutX="499.0" layoutY="72.0" mnemonicParsing="false" onAction="#createNewPlan" prefHeight="18.0" prefWidth="130.0" text="Create New One" />
+      <Separator layoutX="21.0" layoutY="110.0" prefHeight="3.0" prefWidth="619.0" />
+      <TextField fx:id="txtPlanName" layoutX="115.0" layoutY="118.0" />
+      <Label layoutX="27.0" layoutY="208.0" prefHeight="21.0" prefWidth="98.0" text="Customer Type:">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="cbCustomerType" layoutX="26.0" layoutY="229.0" prefHeight="27.0" prefWidth="112.0" promptText="Select .." visibleRowCount="20" />
+      <ListView fx:id="lstCompensationCriteria" layoutX="25.0" layoutY="268.0" prefHeight="176.0" prefWidth="578.0" />
+      <Label layoutX="147.0" layoutY="208.0" prefHeight="21.0" prefWidth="98.0" text="User Role:">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="cbUserRole" layoutX="145.0" layoutY="229.0" prefHeight="27.0" prefWidth="112.0" promptText="Select .." visibleRowCount="20" />
+      <Label layoutX="269.0" layoutY="208.0" prefHeight="21.0" prefWidth="98.0" text="Commission %">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblRangeMin" layoutX="348.0" layoutY="208.0" prefHeight="21.0" prefWidth="98.0" text="Range Minimum:">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblRangeMax" layoutX="487.0" layoutY="208.0" prefHeight="21.0" prefWidth="98.0" text="Range Maximum:">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtCommissionPer" layoutX="269.0" layoutY="229.0" prefHeight="27.0" prefWidth="63.0">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtRangeMin" layoutX="348.0" layoutY="229.0" prefHeight="27.0" prefWidth="130.0">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtRangeMax" layoutX="486.0" layoutY="229.0" prefHeight="27.0" prefWidth="130.0">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </TextField>
+      <Button fx:id="btAddFlat" defaultButton="true" layoutX="339.0" layoutY="231.0" mnemonicParsing="false" onAction="#addPlanCriteria" text="Add">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="btAddFarTiered" defaultButton="true" layoutX="621.0" layoutY="231.0" mnemonicParsing="false" onAction="#addPlanCriteria" text="Add">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="btRemove" defaultButton="true" layoutX="610.0" layoutY="353.0" mnemonicParsing="false" onAction="#removePlanCriteria" text="Remove &gt;">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="btRemoveAll" defaultButton="true" layoutX="610.0" layoutY="387.0" mnemonicParsing="false" onAction="#removeAllPlanCriteria" text="Remove All &gt;&gt;">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Button>
+   </children>
+</Pane>
