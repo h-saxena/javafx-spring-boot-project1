@@ -49,17 +49,6 @@ public class CompensationJobData {
     @Column(name = "COMMISSION_AMOUNT")
     Double commAmount;
 
-    @Transient
-    private BooleanProperty checked = new SimpleBooleanProperty(false);
-
-    public ObservableBooleanValue isChecked() {
-        return checked;
-    }
-
-    public void setChecked(Boolean checked) {
-        this.checked.set(checked);
-    }
-
     public Integer getId() {
         return id;
     }

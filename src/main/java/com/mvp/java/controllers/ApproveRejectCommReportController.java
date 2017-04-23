@@ -81,15 +81,15 @@ public class ApproveRejectCommReportController {
 
             @Override
             public ObservableValue<Boolean> call(TableColumn.CellDataFeatures<CompensationJobData, Boolean> param) {
-                CompensationJobData person = param.getValue();
+                CompensationJobData jobData = param.getValue();
 
-                SimpleBooleanProperty booleanProp = new SimpleBooleanProperty(person.getApprovalStatus());
+                SimpleBooleanProperty booleanProp = new SimpleBooleanProperty(jobData.getApprovalStatus());
                 booleanProp.addListener(new ChangeListener<Boolean>() {
 
                     @Override
                     public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue,
                                         Boolean newValue) {
-                        person.setApprovalStatus(newValue);
+                        jobData.setApprovalStatus(newValue);
                     }
                 });
                 return booleanProp;

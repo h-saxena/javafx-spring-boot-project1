@@ -30,6 +30,9 @@ public class SubContainerController {
     @Autowired
     RunSchedulerController runSchedulerController;
 
+    @Autowired
+    PayoutCommController payoutCommController;
+
     @FXML
     ScrollPane contentScrollPaneContainer;
 
@@ -72,6 +75,7 @@ public class SubContainerController {
             case "CompensationPlan" : compensationPlanController.loadUI(); break;
             case "ApproveRejectCommReport" : approveRejectCommReportController.loadUI(); break;
             case "RunScheduler" : runSchedulerController.loadUI(); break;
+            case "PayoutComm" : payoutCommController.loadUI(); break;
 
         }
 

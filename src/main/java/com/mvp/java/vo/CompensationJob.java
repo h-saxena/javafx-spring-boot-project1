@@ -8,20 +8,15 @@ import javax.persistence.*;
                 parameters = {
                 @StoredProcedureParameter(mode = ParameterMode.IN, name = "StartPageNumber", type = Integer.class)
                 ,@StoredProcedureParameter(mode = ParameterMode.IN, name = "EndPageNumber", type = Integer.class)
-        })
+        }) ,
+        @NamedStoredProcedureQuery(name = "usp_ListReportsForPayout", procedureName = "usp_ListReportsForPayout"
+                , resultClasses = CompensationJob.class,
+                parameters = {
+                        @StoredProcedureParameter(mode = ParameterMode.IN, name = "StartPageNumber", type = Integer.class)
+                        ,@StoredProcedureParameter(mode = ParameterMode.IN, name = "EndPageNumber", type = Integer.class)
+                })
 
-//        @NamedStoredProcedureQuery(name = "usp_CompensationPlan_IU", procedureName = "usp_CompensationPlan_IU"
-//                ,
-//                parameters = {
-//                        @StoredProcedureParameter(mode = ParameterMode.IN, name = "CompensationPlanName", type = String.class)
-//                        ,@StoredProcedureParameter(mode = ParameterMode.IN, name = "CompensationPlanType", type = String.class)
-//                        ,@StoredProcedureParameter(mode = ParameterMode.IN, name = "ProductID", type = Integer.class)
-//                        ,@StoredProcedureParameter(mode = ParameterMode.IN, name = "ProductTypeID", type = Integer.class)
-//                        ,@StoredProcedureParameter(mode = ParameterMode.IN, name = "PublishPlan", type = Boolean.class)
-//                        ,@StoredProcedureParameter(mode = ParameterMode.IN, name = "UserID", type = String.class)
-//                        ,@StoredProcedureParameter(mode = ParameterMode.IN, name = "CompensationDataXml", type = String.class)
-//                        ,@StoredProcedureParameter(mode = ParameterMode.INOUT, name = "CompensationPlanID", type = Integer.class)
-//                })
+
 
 })
 @Entity
