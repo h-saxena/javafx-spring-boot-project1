@@ -19,7 +19,7 @@
       <Label layoutX="381.0" layoutY="113.0" prefHeight="21.0" prefWidth="136.0" text="Sales Representative:" />
       <TextField fx:id="txtSalesRep" disable="true" layoutX="518.0" layoutY="110.0" />
       <ComboBox fx:id="cbSalesPeriod" layoutX="62.0" layoutY="110.0" onAction="#salesPeriodSelected" prefHeight="27.0" prefWidth="276.0" promptText="Please select the period ..." />
-      <TableView fx:id="tbCommData" layoutX="11.0" layoutY="208.0" prefHeight="200.0" prefWidth="711.0">
+      <TableView fx:id="tbSalesPersonCompData" layoutX="11.0" layoutY="208.0" prefHeight="200.0" prefWidth="711.0">
         <columns>
           <TableColumn fx:id="tcOrderNum" prefWidth="85.0" text="Order#" />
             <TableColumn fx:id="tcCustomer" prefWidth="154.0" text="Customer" />
@@ -29,19 +29,18 @@
             <TableColumn fx:id="tcStatus" prefWidth="134.0" text="Commission Status" />
         </columns>
       </TableView>
-      <TableView layoutX="10.0" layoutY="435.0" prefHeight="113.0" prefWidth="389.0">
+      <TableView fx:id="tbPerfSummary" layoutX="10.0" layoutY="435.0" prefHeight="113.0" prefWidth="353.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="Summary" />
-          <TableColumn prefWidth="125.0" text="Period" />
-            <TableColumn prefWidth="79.0" text="YTD" />
-            <TableColumn prefWidth="109.0" text="LifeTime" />
+          <TableColumn fx:id="tcSummary" prefWidth="84.0" text="Summary" />
+          <TableColumn fx:id="tcTotalSales" prefWidth="123.0" text="Total Sales" />
+            <TableColumn fx:id="tcTotalCompensation" prefWidth="143.0" text="Total Compensation" />
         </columns>
       </TableView>
-      <TableView layoutX="432.0" layoutY="435.0" prefHeight="200.0" prefWidth="286.0">
+      <TableView fx:id="tbPerfQuarterly" layoutX="413.0" layoutY="435.0" prefHeight="200.0" prefWidth="305.0">
         <columns>
-          <TableColumn prefWidth="63.0" text="Quarter" />
-          <TableColumn prefWidth="107.0" text="Target" />
-            <TableColumn prefWidth="114.0" text="Achieved" />
+          <TableColumn fx:id="tcQuarter" prefWidth="63.0" text="Quarter" />
+          <TableColumn fx:id="tcTarget" prefWidth="107.0" text="Target" />
+            <TableColumn fx:id="tcAchieved" prefWidth="134.0" text="Achieved" />
         </columns>
       </TableView>
    </children>

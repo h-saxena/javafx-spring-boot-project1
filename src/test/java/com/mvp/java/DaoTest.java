@@ -1,9 +1,6 @@
 package com.mvp.java;
 
-import com.mvp.java.repository.ApproveRejectCommReportDao;
-import com.mvp.java.repository.CommonsDao;
-import com.mvp.java.repository.SalesHierarchyDao;
-import com.mvp.java.repository.TasksDao;
+import com.mvp.java.repository.*;
 import com.mvp.java.vo.TaskSchedule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -32,9 +29,15 @@ public class DaoTest {
     @Autowired
     ApproveRejectCommReportDao approveRejectCommReportDao;
 
+    @Autowired
+    DashboardReportDao dashboardReportDao;
+
     @Test
     public void salesDashboardTest() {
-        approveRejectCommReportDao.getPerformanceDashboardFor(50, 2);
+        List r1 = dashboardReportDao.getSalesPersonPayoutReportData(50, 2);
+        List r2 = dashboardReportDao.getSalesPerformanceSummaryData(50, 2);
+        List r3 = dashboardReportDao.getSalesPerformanceQuarterlyData(50, 2);
+        this.getClass();
     }
 
 

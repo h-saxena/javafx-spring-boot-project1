@@ -50,15 +50,15 @@ public class ApproveRejectCommReportDao {
     public void getPerformanceDashboardFor(Integer jobId, Integer salePersonId) {
         Session session = entityManager.unwrap(Session.class);
 
-        ProcedureCall call = session
-                .createStoredProcedureCall("usp_ViewPerformanceDashboard");
-
-        call.registerParameter(1, Integer.class,
-                ParameterMode.IN).bindValue(50);
-        call.registerParameter(2, Integer.class,
-                ParameterMode.IN).bindValue(2);
-
-        ProcedureOutputs outputs =  call.getOutputs();
+//        ProcedureCall call = session
+//                .createStoredProcedureCall("usp_ViewPerformanceDashboard");
+//
+//        call.registerParameter(1, Integer.class,
+//                ParameterMode.IN).bindValue(50);
+//        call.registerParameter(2, Integer.class,
+//                ParameterMode.IN).bindValue(2);
+//
+//        ProcedureOutputs outputs =  call.getOutputs();
 
 
 
