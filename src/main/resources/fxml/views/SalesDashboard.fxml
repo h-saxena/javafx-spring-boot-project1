@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="SalesDashboardNode" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="669.0" prefWidth="798.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mvp.java.controllers.SalesDashboardController">
+   <children>
+      <Label alignment="CENTER" layoutX="104.0" layoutY="7.0" prefHeight="33.0" prefWidth="577.0" style="-fx-background-color: lightgrey;" text="My Performance Dashboard" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="27.0" />
+         </font>
+      </Label>
+      <Label layoutX="15.0" layoutY="113.0" prefHeight="21.0" prefWidth="88.0" text="Period:" />
+      <Label layoutX="381.0" layoutY="113.0" prefHeight="21.0" prefWidth="136.0" text="Sales Representative:" />
+      <TextField fx:id="txtSalesRep" disable="true" layoutX="518.0" layoutY="110.0" />
+      <ComboBox fx:id="cbSalesPeriod" layoutX="62.0" layoutY="110.0" onAction="#salesPeriodSelected" prefHeight="27.0" prefWidth="276.0" promptText="Please select the period ..." />
+      <TableView fx:id="tbCommData" layoutX="11.0" layoutY="208.0" prefHeight="200.0" prefWidth="711.0">
+        <columns>
+          <TableColumn fx:id="tcOrderNum" prefWidth="85.0" text="Order#" />
+            <TableColumn fx:id="tcCustomer" prefWidth="154.0" text="Customer" />
+            <TableColumn fx:id="tcSalesAmount" prefWidth="119.0" text="Sales Amount" />
+            <TableColumn fx:id="tcRate" prefWidth="66.0" text="Rate %" />
+            <TableColumn fx:id="tcGrossComm" prefWidth="151.0" text="Gross Commission" />
+            <TableColumn fx:id="tcStatus" prefWidth="134.0" text="Commission Status" />
+        </columns>
+      </TableView>
+      <TableView layoutX="10.0" layoutY="435.0" prefHeight="113.0" prefWidth="389.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Summary" />
+          <TableColumn prefWidth="125.0" text="Period" />
+            <TableColumn prefWidth="79.0" text="YTD" />
+            <TableColumn prefWidth="109.0" text="LifeTime" />
+        </columns>
+      </TableView>
+      <TableView layoutX="432.0" layoutY="435.0" prefHeight="200.0" prefWidth="286.0">
+        <columns>
+          <TableColumn prefWidth="63.0" text="Quarter" />
+          <TableColumn prefWidth="107.0" text="Target" />
+            <TableColumn prefWidth="114.0" text="Achieved" />
+        </columns>
+      </TableView>
+   </children>
+</Pane>
