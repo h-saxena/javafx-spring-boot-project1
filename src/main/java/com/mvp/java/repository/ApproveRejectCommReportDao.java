@@ -2,13 +2,14 @@ package com.mvp.java.repository;
 
 import com.mvp.java.vo.CompensationJob;
 import com.mvp.java.vo.CompensationJobData;
+import org.hibernate.Session;
+import org.hibernate.procedure.ProcedureCall;
+import org.hibernate.procedure.ProcedureOutputs;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
-import javax.persistence.StoredProcedureQuery;
+import javax.persistence.*;
 import java.util.List;
 
 @Component
@@ -42,6 +43,42 @@ public class ApproveRejectCommReportDao {
         Boolean anyError = query.execute();
 
         return anyError?false : true;
+
+    }
+
+    @Transactional
+    public void getPerformanceDashboardFor(Integer jobId, Integer salePersonId) {
+        Session session = entityManager.unwrap(Session.class);
+
+        ProcedureCall call = session
+                .createStoredProcedureCall("usp_ViewPerformanceDashboard");
+
+        call.registerParameter(1, Integer.class,
+                ParameterMode.IN).bindValue(50);
+        call.registerParameter(2, Integer.class,
+                ParameterMode.IN).bindValue(2);
+
+        ProcedureOutputs outputs =  call.getOutputs();
+
+
+
+//        StoredProcedureQuery query = entityManager.createNamedStoredProcedureQuery("usp_ViewPerformanceDashboard");
+//        query.setParameter("JobID", jobId);
+//        query.setParameter("SalesHierarchyID", salePersonId);
+//
+//        query.execute();
+//
+//        List result1 = query.getResultList();
+//        List result2 = null;
+//        List result3 = null;
+//
+//        if(query.hasMoreResults())
+//            result2 = query.getResultList();
+//
+//        if(query.hasMoreResults())
+//            result3 = query.getResultList();
+//
+//
 
     }
 

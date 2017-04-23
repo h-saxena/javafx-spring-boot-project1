@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
@@ -9,10 +10,11 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
 
 <BorderPane fx:id="containerBorderPane" prefHeight="548.0" prefWidth="750.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mvp.java.controllers.SubContainerController">
 <center>
-    <SplitPane dividerPositions="0.3064516129032258" BorderPane.alignment="CENTER">
+    <SplitPane dividerPositions="0.06149732620320856" BorderPane.alignment="CENTER">
         <items>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                 <children>
@@ -27,15 +29,16 @@
                      <center>
                         <Pane prefHeight="319.0" prefWidth="194.0" BorderPane.alignment="CENTER">
                            <children>
-                              <Label layoutX="25.0" layoutY="22.0" text="Data Collection" />
-                                    <Hyperlink fx:id="TaskScheduler" layoutX="47.0" layoutY="37.0" onAction="#menuItemClicked" text="Task Scheduler" />
-                                    <Hyperlink fx:id="SalesHierarchy" layoutX="20.0" layoutY="102.0" onAction="#menuItemClicked" text="Sale Hierarchy" />
-                              <Hyperlink fx:id="RunScheduler" layoutX="46.0" layoutY="62.0" onAction="#menuItemClicked" text="Run Scheduler" />
-                                    <Hyperlink fx:id="CompensationPlan" layoutX="19.0" layoutY="144.0" onAction="#menuItemClicked" text="Compensation Plan" />
-                                    <Hyperlink fx:id="ApproveRejectCommReport" layoutX="20.0" layoutY="187.0" onAction="#menuItemClicked" text="Approve/Reject Compensation Report" />
-                                    <Hyperlink fx:id="PayoutComm" layoutX="18.0" layoutY="228.0" onAction="#menuItemClicked" text="Payout Commission" />
-                              <Label layoutX="23.0" layoutY="267.0" text="Report" />
-                                    <Hyperlink fx:id="SalesCommReport" layoutX="42.0" layoutY="279.0" onAction="#menuItemClicked" text="Commission Report" />
+                               <Label layoutX="25.0" layoutY="63.0" text="Data Collection" />
+                               <Hyperlink fx:id="TaskScheduler" layoutX="47.0" layoutY="78.0" onAction="#menuItemClicked" text="Task Scheduler" />
+                               <Hyperlink fx:id="SalesHierarchy" layoutX="20.0" layoutY="143.0" onAction="#menuItemClicked" text="Sale Hierarchy" />
+                               <Hyperlink fx:id="RunScheduler" layoutX="46.0" layoutY="103.0" onAction="#menuItemClicked" text="Run Scheduler" />
+                               <Hyperlink fx:id="CompensationPlan" layoutX="19.0" layoutY="185.0" onAction="#menuItemClicked" text="Compensation Plan" />
+                               <Hyperlink fx:id="ApproveRejectCommReport" layoutX="20.0" layoutY="228.0" onAction="#menuItemClicked" text="Approve/Reject Compensation Report" />
+                               <Hyperlink fx:id="PayoutComm" layoutX="18.0" layoutY="269.0" onAction="#menuItemClicked" text="Payout Commission" />
+                               <Label layoutX="23.0" layoutY="308.0" text="Report" />
+                               <Hyperlink fx:id="SalesCommReport" layoutX="42.0" layoutY="320.0" onAction="#menuItemClicked" text="Commission Report" />
+                               <Hyperlink fx:id="SalesDashboard" layoutX="22.0" layoutY="22.0" onAction="#menuItemClicked" text="Sales Dashboard" />
                            </children>
                         </Pane>
                      </center>
@@ -47,6 +50,7 @@
                         <content>
                             <StackPane fx:id="stackPaneContainer" alignment="TOP_LEFT" prefHeight="150.0" prefWidth="200.0">
                                 <children>
+                                    <fx:include source="views/SalesDashboard.fxml" />
                                     <fx:include source="views/SalesCommReport.fxml" />
                                     <fx:include source="views/PayoutComm.fxml" />
                                     <fx:include source="views/ApproveRejectCommReport.fxml" />
@@ -62,14 +66,20 @@
                         </content>
                     </ScrollPane>
                 </center>
-                <top>
-                    <AnchorPane prefHeight="25.0" prefWidth="326.0" style="-fx-background-color: lightgrey;" BorderPane.alignment="CENTER">
-                     <children>
-                        <Label layoutX="277.0" layoutY="4.0" text="Hello Admin !" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="277.0" AnchorPane.rightAnchor="156.0" AnchorPane.topAnchor="4.0" />
-                        <Label layoutX="388.0" layoutY="4.0" text="Messages" textFill="#dd0c0c" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="388.0" AnchorPane.rightAnchor="65.0" AnchorPane.topAnchor="4.0" />
-                        <Label layoutX="467.0" layoutY="4.0" prefHeight="17.0" prefWidth="41.0" text="Alerts" textFill="#f50c0c" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="467.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="4.0" />
-                     </children></AnchorPane>
-                </top>
+               <top>
+                  <BorderPane prefHeight="36.0" prefWidth="698.0" BorderPane.alignment="CENTER">
+                     <right>
+                        <Pane prefHeight="36.0" prefWidth="465.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Label layoutX="417.0" layoutY="10.0" prefHeight="17.0" prefWidth="41.0" text="Alerts" textFill="#f50c0c" />
+                              <Label layoutX="344.0" layoutY="10.0" text="Messages" textFill="#dd0c0c" />
+                              <Label layoutX="4.0" layoutY="10.0" text="logged-in User:" />
+                              <ComboBox fx:id="cbUsers" layoutX="101.0" layoutY="5.0" onAction="#userSelectionChanged" prefHeight="27.0" prefWidth="225.0" />
+                           </children>
+                        </Pane>
+                     </right>
+                  </BorderPane>
+               </top>
             </BorderPane>
         </items>
     </SplitPane>
@@ -82,6 +92,18 @@
     </HBox>
 </top>
    <bottom>
-      <Pane prefHeight="32.0" prefWidth="622.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER" />
+      <Pane prefHeight="24.0" prefWidth="750.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="434.0" layoutY="3.0" prefHeight="17.0" prefWidth="96.0" text="Developed By:" textFill="#2612da">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
+            <Label layoutX="526.0" layoutY="3.0" prefHeight="17.0" prefWidth="216.0" text="Hemant Saxena &amp; Deepak Khungar">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
+         </children></Pane>
    </bottom>
 </BorderPane>

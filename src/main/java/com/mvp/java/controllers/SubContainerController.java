@@ -1,9 +1,15 @@
 package com.mvp.java.controllers;
 
+import com.mvp.java.repository.CommonsDao;
+import com.mvp.java.repository.SalesHierarchyDao;
+import com.mvp.java.vo.ReportingManager;
+import com.mvp.java.vo.SalesPerson;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.StackPane;
@@ -14,6 +20,16 @@ import java.io.IOException;
 
 @Component
 public class SubContainerController {
+
+    @FXML
+    StackPane stackPaneContainer;
+
+    @FXML
+    ComboBox<SalesPerson> cbUsers;
+
+    @FXML
+    ScrollPane contentScrollPaneContainer;
+
 
     @Autowired
     TaskSchedulerController taskSchedulerController;
@@ -33,17 +49,21 @@ public class SubContainerController {
     @Autowired
     PayoutCommController payoutCommController;
 
-    @FXML
-    ScrollPane contentScrollPaneContainer;
+    @Autowired
+    SalesDashboardController salesDashboardController;
 
-    @FXML
-    StackPane stackPaneContainer;
+    @Autowired
+    SalesHierarchyDao salesHierarchyDao;
+
 
     String currSelectedSubViewId = null;
 
     public void initialize() {
         hideAllSubViews();
         makeViewVisible("Demo");
+        cbUsers.setItems(FXCollections.observableArrayList(salesHierarchyDao.getSalesPersons()));
+        cbUsers.getSelectionModel().selectFirst();
+        salesDashboardController.loggedInUserChanged(cbUsers.getSelectionModel().getSelectedItem());
     }
 
 
@@ -55,6 +75,10 @@ public class SubContainerController {
         //FXMLLoader loader = (FXMLLoader)nextNode.getScene().getUserData();
 
 
+    }
+
+    public void userSelectionChanged() {
+        salesDashboardController.loggedInUserChanged(cbUsers.getSelectionModel().getSelectedItem());
     }
 
     private void makeViewVisible(String subViewId) {
@@ -76,6 +100,7 @@ public class SubContainerController {
             case "ApproveRejectCommReport" : approveRejectCommReportController.loadUI(); break;
             case "RunScheduler" : runSchedulerController.loadUI(); break;
             case "PayoutComm" : payoutCommController.loadUI(); break;
+            case "SalesDashboard" : salesDashboardController.loadUI(); break;
 
         }
 

@@ -32,8 +32,13 @@ public class DaoTest {
     @Autowired
     ApproveRejectCommReportDao approveRejectCommReportDao;
 
-
     @Test
+    public void salesDashboardTest() {
+        approveRejectCommReportDao.getPerformanceDashboardFor(50, 2);
+    }
+
+
+    //@Test
     public void salesReportTest() {
         List r1 =  approveRejectCommReportDao.getSalesReports();
 

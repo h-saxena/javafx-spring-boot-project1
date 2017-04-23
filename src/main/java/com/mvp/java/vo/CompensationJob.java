@@ -15,6 +15,11 @@ import javax.persistence.*;
                         @StoredProcedureParameter(mode = ParameterMode.IN, name = "StartPageNumber", type = Integer.class)
                         ,@StoredProcedureParameter(mode = ParameterMode.IN, name = "EndPageNumber", type = Integer.class)
                 })
+        ,@NamedStoredProcedureQuery(name = "usp_ViewPerformanceDashboard", procedureName = "usp_ViewPerformanceDashboard"
+        , parameters = {
+                @StoredProcedureParameter(mode = ParameterMode.IN, name = "JobID", type = Integer.class)
+                ,@StoredProcedureParameter(mode = ParameterMode.IN, name = "SalesHierarchyID", type = Integer.class)
+        })
 
 
 
