@@ -1,17 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Hyperlink?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-
 <BorderPane fx:id="containerBorderPane" prefHeight="548.0" prefWidth="750.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mvp.java.controllers.SubContainerController">
 <center>
     <SplitPane dividerPositions="0.06149732620320856" BorderPane.alignment="CENTER">
@@ -69,12 +60,17 @@
                <top>
                   <BorderPane prefHeight="36.0" prefWidth="698.0" BorderPane.alignment="CENTER">
                      <right>
-                        <Pane prefHeight="36.0" prefWidth="465.0" BorderPane.alignment="CENTER">
+                        <Pane prefHeight="36.0" prefWidth="558.0" BorderPane.alignment="CENTER">
                            <children>
-                              <Label layoutX="417.0" layoutY="10.0" prefHeight="17.0" prefWidth="41.0" text="Alerts" textFill="#f50c0c" />
-                              <Label layoutX="344.0" layoutY="10.0" text="Messages" textFill="#dd0c0c" />
-                              <Label layoutX="4.0" layoutY="10.0" text="logged-in User:" />
-                              <ComboBox fx:id="cbUsers" layoutX="101.0" layoutY="5.0" onAction="#userSelectionChanged" prefHeight="27.0" prefWidth="225.0" />
+                              <Label layoutX="511.0" layoutY="10.0" prefHeight="17.0" prefWidth="41.0" text="Alerts" textFill="#f50c0c" />
+                              <Label layoutX="437.0" layoutY="10.0" text="Messages" textFill="#dd0c0c" />
+                              <Label layoutX="3.0" layoutY="10.0" text="logged-in User:" />
+                              <ComboBox fx:id="cbUsers" layoutX="100.0" layoutY="5.0" onAction="#userSelectionChanged" prefHeight="27.0" prefWidth="225.0" />
+                              <Button layoutX="328.0" layoutY="8.0" mnemonicParsing="false" onAction="#reloadUsers" prefHeight="23.0" prefWidth="47.0" text="Reload" textFill="#4e10d3">
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </Button>
                            </children>
                         </Pane>
                      </right>

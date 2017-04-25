@@ -1,14 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
-
-<Pane fx:id="SalesCommReportNode" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="411.0" prefWidth="624.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mvp.java.controllers.SalesCommReportController">
+<Pane fx:id="SalesCommReportNode" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="649.0" prefWidth="852.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mvp.java.controllers.SalesCommReportController">
    <children>
-      <Label alignment="CENTER" layoutX="81.0" layoutY="9.0" prefHeight="33.0" prefWidth="394.0" style="-fx-background-color: lightgrey;" text="Sales Commission Report" textAlignment="CENTER">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c6c7c9" height="274.0" layoutX="15.0" layoutY="354.0" opacity="0.19" stroke="BLACK" strokeLineCap="ROUND" strokeType="OUTSIDE" width="825.0" />
+      <Rectangle arcHeight="10.0" arcWidth="5.0" disable="true" fill="#e8ebee" height="70.0" layoutX="20.0" layoutY="70.0" opacity="0.19" stroke="#2806e4" strokeType="INSIDE" width="719.0" />
+      <Label alignment="CENTER" layoutX="173.0" layoutY="9.0" prefHeight="33.0" prefWidth="394.0" style="-fx-background-color: lightgrey;" text="Sales Commission Report" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="27.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tbManagerData" layoutX="14.0" layoutY="171.0" prefHeight="200.0" prefWidth="588.0">
+         <columns>
+            <TableColumn fx:id="tcSalesManager" prefWidth="203.0" text="Sales Manager" />
+            <TableColumn fx:id="tcSalesQuota" prefWidth="119.0" text="Sales Quota" />
+            <TableColumn fx:id="tcSalesAmount" prefWidth="124.0" text="Sales Amount" />
+            <TableColumn fx:id="tcCommAmount" prefWidth="140.0" text="Commission Amount" />
+         </columns>
+      </TableView>
+      <Label layoutX="25.0" layoutY="94.0" prefHeight="21.0" prefWidth="45.0" text="Period:" />
+      <ComboBox fx:id="cbCompPeriod" layoutX="74.0" layoutY="91.0" onAction="#salesPeriodSelected" prefHeight="27.0" prefWidth="318.0" promptText="Please select the period ..." />
+      <Label layoutX="470.0" layoutY="94.0" prefHeight="21.0" prefWidth="51.0" text="Region:" />
+      <ComboBox fx:id="cbRegion" layoutX="520.0" layoutY="91.0" onAction="#regionSelected" prefHeight="27.0" prefWidth="167.0" />
+      <TableView fx:id="tbSalesPersonData" layoutX="46.0" layoutY="385.0" prefHeight="224.0" prefWidth="789.0">
+         <columns>
+            <TableColumn fx:id="tcSubSalesRep" prefWidth="186.0" text="Sales Rep" />
+            <TableColumn fx:id="tcSubOrderNum" prefWidth="85.0" text="Order#" />
+            <TableColumn fx:id="tcSubCustomer" prefWidth="180.0" text="Customer" />
+            <TableColumn fx:id="tcSubSalesAmount" prefWidth="161.0" text="Sales Amount" />
+            <TableColumn fx:id="tcSubCommAmount" prefWidth="175.0" text="Commission Amount" />
+         </columns>
+      </TableView>
+      <Label fx:id="lblNotAuthorized" layoutX="20.0" layoutY="53.0" prefHeight="17.0" prefWidth="438.0" text="Not Authorized. Please contact System Administrator." textFill="#eb0202">
+         <font>
+            <Font name="System Bold" size="15.0" />
          </font>
       </Label>
    </children>

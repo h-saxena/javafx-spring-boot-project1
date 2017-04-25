@@ -1,8 +1,6 @@
 package com.mvp.java.controllers;
 
-import com.mvp.java.repository.CommonsDao;
 import com.mvp.java.repository.SalesHierarchyDao;
-import com.mvp.java.vo.ReportingManager;
 import com.mvp.java.vo.SalesPerson;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -53,6 +51,9 @@ public class SubContainerController {
     SalesDashboardController salesDashboardController;
 
     @Autowired
+    SalesCommReportController salesCommReportController;
+
+    @Autowired
     SalesHierarchyDao salesHierarchyDao;
 
 
@@ -61,9 +62,18 @@ public class SubContainerController {
     public void initialize() {
         hideAllSubViews();
         makeViewVisible("Demo");
-        cbUsers.setItems(FXCollections.observableArrayList(salesHierarchyDao.getSalesPersons()));
+        reloadUsers();
         cbUsers.getSelectionModel().selectFirst();
         salesDashboardController.loggedInUserChanged(cbUsers.getSelectionModel().getSelectedItem());
+    }
+
+    public void reloadUsers() {
+        cbUsers.setItems(FXCollections.observableArrayList(salesHierarchyDao.getSalesPersons()));
+        SalesPerson adminPerson = new SalesPerson();
+        adminPerson.setSaleHierarchyId(0);
+        adminPerson.setLname("Sales");
+        adminPerson.setFname("Admin");
+        cbUsers.getItems().add(adminPerson);
     }
 
 
@@ -79,6 +89,11 @@ public class SubContainerController {
 
     public void userSelectionChanged() {
         salesDashboardController.loggedInUserChanged(cbUsers.getSelectionModel().getSelectedItem());
+        salesCommReportController.loggedInUserChanged(cbUsers.getSelectionModel().getSelectedItem());
+    }
+
+    public SalesPerson getLoggedInUser() {
+        return cbUsers.getSelectionModel().getSelectedItem();
     }
 
     private void makeViewVisible(String subViewId) {
@@ -101,6 +116,7 @@ public class SubContainerController {
             case "RunScheduler" : runSchedulerController.loadUI(); break;
             case "PayoutComm" : payoutCommController.loadUI(); break;
             case "SalesDashboard" : salesDashboardController.loadUI(); break;
+            case "SalesCommReport" : salesCommReportController.loadUI(); break;
 
         }
 
