@@ -64,7 +64,7 @@ public class SubContainerController {
         makeViewVisible("Demo");
         reloadUsers();
         cbUsers.getSelectionModel().selectFirst();
-        salesDashboardController.loggedInUserChanged(cbUsers.getSelectionModel().getSelectedItem());
+        userSelectionChanged();
     }
 
     public void reloadUsers() {
@@ -73,6 +73,7 @@ public class SubContainerController {
         adminPerson.setSaleHierarchyId(0);
         adminPerson.setLname("Sales");
         adminPerson.setFname("Admin");
+        adminPerson.setDesName("<Administrator>");
         cbUsers.getItems().add(adminPerson);
     }
 
