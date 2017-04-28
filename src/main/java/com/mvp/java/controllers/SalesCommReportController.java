@@ -119,7 +119,7 @@ public class SalesCommReportController {
     private void loadData(boolean justResetView) {
         resetView();
         toggleSelectionBoxesDisability(true);
-        if(selectedUser.getrId() == 1) { // only admin can see the report
+        if(selectedUser != null && selectedUser.getrId() == 1) { // only admin can see the report
             toggleSelectionBoxesDisability(false);
 
             if(justResetView) return;

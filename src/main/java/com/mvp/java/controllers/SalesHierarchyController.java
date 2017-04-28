@@ -1,8 +1,8 @@
 package com.mvp.java.controllers;
 
+import com.mvp.java.helpers.CurrencyFormatter;
 import com.mvp.java.repository.CommonsDao;
 import com.mvp.java.repository.SalesHierarchyDao;
-import com.mvp.java.repository.TasksDao;
 import com.mvp.java.vo.*;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
@@ -65,7 +65,13 @@ public class SalesHierarchyController {
 
     boolean isLoadedOnce = false;
 
-    public void loadUI() {
+    public void initialize() {
+        txtBasicSalary.setTextFormatter( new CurrencyFormatter());
+        txtTotalTargetComp.setTextFormatter( new CurrencyFormatter());
+        txtSaleQuota.setTextFormatter( new CurrencyFormatter());
+    }
+
+        public void loadUI() {
         if(! isLoadedOnce) {
             cbSelectAgent.setItems(FXCollections.observableArrayList(salesHierarchyDao.getSalesPersons()));
 
