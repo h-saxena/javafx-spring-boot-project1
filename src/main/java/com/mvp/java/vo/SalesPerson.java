@@ -196,7 +196,10 @@ private Integer saleHierarchyId;
 
     @Override
     public String toString() {
-        return lname + ", " + fname + " - " + desName;
+        String dispStr = lname + ", " + fname + " - " + desName;
+        if(this.rId == 1) //admin
+            dispStr+= "*";
+        return dispStr;
     }
 
 }

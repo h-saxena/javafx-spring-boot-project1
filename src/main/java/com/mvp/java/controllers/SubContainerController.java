@@ -63,18 +63,12 @@ public class SubContainerController {
         hideAllSubViews();
         makeViewVisible("Demo");
         reloadUsers();
-        cbUsers.getSelectionModel().selectFirst();
-        userSelectionChanged();
+        //userSelectionChanged();
     }
 
     public void reloadUsers() {
-        cbUsers.setItems(FXCollections.observableArrayList(salesHierarchyDao.getSalesPersons()));
-        SalesPerson adminPerson = new SalesPerson();
-        adminPerson.setSaleHierarchyId(0);
-        adminPerson.setLname("Sales");
-        adminPerson.setFname("Admin");
-        adminPerson.setDesName("<Administrator>");
-        cbUsers.getItems().add(adminPerson);
+        cbUsers.setItems(FXCollections.observableArrayList(salesHierarchyDao.getNonCachedSalesPersons()));
+        cbUsers.getSelectionModel().selectFirst();
     }
 
 
@@ -89,8 +83,10 @@ public class SubContainerController {
     }
 
     public void userSelectionChanged() {
-        salesDashboardController.loggedInUserChanged(cbUsers.getSelectionModel().getSelectedItem());
-        salesCommReportController.loggedInUserChanged(cbUsers.getSelectionModel().getSelectedItem());
+        if(cbUsers.getSelectionModel().getSelectedItem() != null) {
+            salesDashboardController.loggedInUserChanged(cbUsers.getSelectionModel().getSelectedItem());
+            salesCommReportController.loggedInUserChanged(cbUsers.getSelectionModel().getSelectedItem());
+        }
     }
 
     public SalesPerson getLoggedInUser() {
