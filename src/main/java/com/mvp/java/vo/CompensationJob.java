@@ -8,8 +8,16 @@ import javax.persistence.*;
                 parameters = {
                 @StoredProcedureParameter(mode = ParameterMode.IN, name = "StartPageNumber", type = Integer.class)
                 ,@StoredProcedureParameter(mode = ParameterMode.IN, name = "EndPageNumber", type = Integer.class)
-        }) ,
+        })
+        ,
         @NamedStoredProcedureQuery(name = "usp_ListReportsForPayout", procedureName = "usp_ListReportsForPayout"
+                , resultClasses = CompensationJob.class,
+                parameters = {
+                        @StoredProcedureParameter(mode = ParameterMode.IN, name = "StartPageNumber", type = Integer.class)
+                        ,@StoredProcedureParameter(mode = ParameterMode.IN, name = "EndPageNumber", type = Integer.class)
+                })
+        ,
+        @NamedStoredProcedureQuery(name = "usp_ListReportsDashboard", procedureName = "usp_ListReportsDashboard"
                 , resultClasses = CompensationJob.class,
                 parameters = {
                         @StoredProcedureParameter(mode = ParameterMode.IN, name = "StartPageNumber", type = Integer.class)

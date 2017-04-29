@@ -97,7 +97,7 @@ public class SalesDashboardController {
 
     public void loadUI() {
         resetView();
-        cbSalesPeriod.setItems(FXCollections.observableArrayList(approveRejectCommReportDao.getSalesReports()));
+        cbSalesPeriod.setItems(FXCollections.observableArrayList(dashboardReportDao.getSalesReportsDashboard()));
         //loadViewData();
     }
 

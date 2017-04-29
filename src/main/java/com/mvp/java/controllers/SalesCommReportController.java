@@ -3,6 +3,7 @@ package com.mvp.java.controllers;
 import com.mvp.java.repository.ApproveRejectCommReportDao;
 import com.mvp.java.repository.CommonsDao;
 import com.mvp.java.repository.ManagerCommissionReportDao;
+import com.mvp.java.repository.PayoutCompensationReportDao;
 import com.mvp.java.vo.*;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
@@ -59,6 +60,8 @@ public class SalesCommReportController {
 
 
     @Autowired
+    PayoutCompensationReportDao payoutCompensationReportDao;
+    @Autowired
     ApproveRejectCommReportDao approveRejectCommReportDao;
     @Autowired
     CommonsDao commonsDao;
@@ -92,7 +95,7 @@ public class SalesCommReportController {
     }
 
     public void loadUI() {
-        cbCompPeriod.setItems(FXCollections.observableArrayList(approveRejectCommReportDao.getSalesReports()));
+        cbCompPeriod.setItems(FXCollections.observableArrayList(payoutCompensationReportDao.getSalesReports()));
         cbRegion.setItems(FXCollections.observableArrayList(commonsDao.getRegions()));
         loadData(true);
 
