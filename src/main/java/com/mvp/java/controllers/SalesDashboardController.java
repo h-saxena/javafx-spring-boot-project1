@@ -121,13 +121,16 @@ public class SalesDashboardController {
 
     private void loadViewData() {
         if(SalesDashboardNode.isVisible()) {
+            if(selSalesPerson == null || cbSalesPeriod.getSelectionModel().getSelectedItem() == null)
+                return;
+
             List<SalesPersonCompensationData> salesPersonCompensationDataList = dashboardReportDao.getSalesPersonPayoutReportData(cbSalesPeriod.getSelectionModel().getSelectedItem().getId(),
                     selSalesPerson.getSaleHierarchyId());
 
             List<SalesPerformanceSummaryData> salesPerformanceSummaryDataList = dashboardReportDao.getSalesPerformanceSummaryData(cbSalesPeriod.getSelectionModel().getSelectedItem().getId(),
                     selSalesPerson.getSaleHierarchyId());
 
-            List<SalesPerformanceQuarterlyData> salesPerformanceQuarterlyDataList = dashboardReportDao.getSalesPerformanceQuarterlyData(cbSalesPeriod.getSelectionModel().getSelectedItem().getId(),
+            List<SalesPerformanceQuarterlyData> salesPerformanceQuarterlyDataList = dashboardReportDao.getSalesPerformanceQuarterlyDataNative(cbSalesPeriod.getSelectionModel().getSelectedItem().getId(),
                     selSalesPerson.getSaleHierarchyId());
 
             tbSalesPersonCompData.setItems(FXCollections.observableArrayList(salesPersonCompensationDataList));

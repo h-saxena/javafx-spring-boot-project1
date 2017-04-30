@@ -36,7 +36,7 @@ public class DaoTest {
     public void salesDashboardTest() {
         List r1 = dashboardReportDao.getSalesPersonPayoutReportData(50, 2);
         List r2 = dashboardReportDao.getSalesPerformanceSummaryData(50, 2);
-        List r3 = dashboardReportDao.getSalesPerformanceQuarterlyData(50, 2);
+        List r3 = dashboardReportDao.getSalesPerformanceQuarterlyDataNative(50, 2);
         this.getClass();
     }
 

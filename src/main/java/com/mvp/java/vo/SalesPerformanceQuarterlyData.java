@@ -10,6 +10,12 @@ import javax.persistence.*;
                         @StoredProcedureParameter(mode = ParameterMode.IN, name = "JobID", type = Integer.class)
                         ,@StoredProcedureParameter(mode = ParameterMode.IN, name = "SalesHierarchyID", type = Integer.class)
                 })
+        ,@NamedStoredProcedureQuery(name = "usp_ViewPerformanceDashboardQuaterWiseResultNotMapped", procedureName = "usp_ViewPerformanceDashboardQuaterWise"
+        ,parameters = {
+                @StoredProcedureParameter(mode = ParameterMode.IN, name = "JobID", type = Integer.class)
+                ,@StoredProcedureParameter(mode = ParameterMode.IN, name = "SalesHierarchyID", type = Integer.class)
+        })
+
 })
 
 // Quarter, SALESHIERARCHY_SALESQUOTA, SALES_AMOUNT

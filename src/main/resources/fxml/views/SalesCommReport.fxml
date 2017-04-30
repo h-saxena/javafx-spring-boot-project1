@@ -16,9 +16,9 @@
       <TableView fx:id="tbManagerData" layoutX="14.0" layoutY="171.0" prefHeight="200.0" prefWidth="588.0">
          <columns>
             <TableColumn fx:id="tcSalesManager" prefWidth="203.0" text="Sales Manager" />
-            <TableColumn fx:id="tcSalesQuota" prefWidth="119.0" text="Sales Quota" />
-            <TableColumn fx:id="tcSalesAmount" prefWidth="124.0" text="Sales Amount" />
-            <TableColumn fx:id="tcCommAmount" prefWidth="140.0" text="Commission Amount" />
+            <TableColumn fx:id="tcSalesQuota" prefWidth="119.0" style="-fx-alignment: CENTER-RIGHT;" text="Sales Quota" />
+            <TableColumn fx:id="tcSalesAmount" prefWidth="124.0" style="-fx-alignment: CENTER-RIGHT;" text="Sales Amount" />
+            <TableColumn fx:id="tcCommAmount" prefWidth="140.0" style="-fx-alignment: CENTER-RIGHT;" text="Commission Amount" />
          </columns>
       </TableView>
       <Label layoutX="25.0" layoutY="94.0" prefHeight="21.0" prefWidth="45.0" text="Period:" />
@@ -30,8 +30,8 @@
             <TableColumn fx:id="tcSubSalesRep" prefWidth="186.0" text="Sales Rep" />
             <TableColumn fx:id="tcSubOrderNum" prefWidth="85.0" text="Order#" />
             <TableColumn fx:id="tcSubCustomer" prefWidth="180.0" text="Customer" />
-            <TableColumn fx:id="tcSubSalesAmount" prefWidth="161.0" text="Sales Amount" />
-            <TableColumn fx:id="tcSubCommAmount" prefWidth="175.0" text="Commission Amount" />
+            <TableColumn fx:id="tcSubSalesAmount" prefWidth="161.0" style="-fx-alignment: CENTER-RIGHT;" text="Sales Amount" />
+            <TableColumn fx:id="tcSubCommAmount" prefWidth="175.0" style="-fx-alignment: CENTER-RIGHT;" text="Commission Amount" />
          </columns>
       </TableView>
       <Label fx:id="lblNotAuthorized" layoutX="20.0" layoutY="53.0" prefHeight="17.0" prefWidth="438.0" text="Not Authorized. Please contact System Administrator." textFill="#eb0202">

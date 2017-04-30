@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
-
 <Pane fx:id="SalesDashboardNode" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="669.0" prefWidth="798.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mvp.java.controllers.SalesDashboardController">
    <children>
       <Label alignment="CENTER" layoutX="104.0" layoutY="7.0" prefHeight="33.0" prefWidth="577.0" style="-fx-background-color: lightgrey;" text="My Performance Dashboard" textAlignment="CENTER">
@@ -23,24 +18,24 @@
         <columns>
           <TableColumn fx:id="tcOrderNum" prefWidth="85.0" text="Order#" />
             <TableColumn fx:id="tcCustomer" prefWidth="154.0" text="Customer" />
-            <TableColumn fx:id="tcSalesAmount" prefWidth="119.0" text="Sales Amount" />
-            <TableColumn fx:id="tcRate" prefWidth="66.0" text="Rate %" />
-            <TableColumn fx:id="tcGrossComm" prefWidth="151.0" text="Gross Commission" />
-            <TableColumn fx:id="tcStatus" prefWidth="134.0" text="Commission Status" />
+            <TableColumn fx:id="tcSalesAmount" prefWidth="119.0" style="-fx-alignment: CENTER-RIGHT;" text="Sales Amount" />
+            <TableColumn fx:id="tcRate" prefWidth="66.0" style="-fx-alignment: CENTER-RIGHT;" text="Rate %" />
+            <TableColumn fx:id="tcGrossComm" prefWidth="151.0" style="-fx-alignment: CENTER-RIGHT;" text="Gross Commission" />
+            <TableColumn fx:id="tcStatus" prefWidth="134.0" style="-fx-alignment: CENTER;" text="Commission Status" />
         </columns>
       </TableView>
-      <TableView fx:id="tbPerfSummary" layoutX="10.0" layoutY="435.0" prefHeight="113.0" prefWidth="353.0">
+      <TableView fx:id="tbPerfSummary" layoutX="10.0" layoutY="435.0" prefHeight="93.0" prefWidth="353.0">
         <columns>
           <TableColumn fx:id="tcSummary" prefWidth="84.0" text="Summary" />
-          <TableColumn fx:id="tcTotalSales" prefWidth="123.0" text="Total Sales" />
-            <TableColumn fx:id="tcTotalCompensation" prefWidth="143.0" text="Total Compensation" />
+          <TableColumn fx:id="tcTotalSales" prefWidth="123.0" style="-fx-alignment: CENTER-RIGHT;" text="Total Sales" />
+            <TableColumn fx:id="tcTotalCompensation" prefWidth="143.0" style="-fx-alignment: CENTER-RIGHT;" text="Total Compensation" />
         </columns>
       </TableView>
-      <TableView fx:id="tbPerfQuarterly" layoutX="413.0" layoutY="435.0" prefHeight="200.0" prefWidth="305.0">
+      <TableView fx:id="tbPerfQuarterly" layoutX="413.0" layoutY="435.0" prefHeight="152.0" prefWidth="308.0">
         <columns>
           <TableColumn fx:id="tcQuarter" prefWidth="63.0" text="Quarter" />
-          <TableColumn fx:id="tcTarget" prefWidth="107.0" text="Target" />
-            <TableColumn fx:id="tcAchieved" prefWidth="134.0" text="Achieved" />
+          <TableColumn fx:id="tcTarget" prefWidth="107.0" style="-fx-alignment: CENTER-RIGHT;" text="Target" />
+            <TableColumn fx:id="tcAchieved" prefWidth="134.0" style="-fx-alignment: CENTER-RIGHT;" text="Achieved" />
         </columns>
       </TableView>
    </children>

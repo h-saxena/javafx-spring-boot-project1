@@ -176,6 +176,9 @@ public class SalesHierarchyController {
     }
 
     public void resetView() {
+        resetView(true);
+    }
+    public void resetView(boolean resetCreateNew) {
         txtFirstName.setText(null);
         txtBasicSalary.setText(null);
         txtTotalTargetComp.setText(null);
@@ -188,7 +191,7 @@ public class SalesHierarchyController {
         cbPayoutFreq.getSelectionModel().select(null);
         cdReportingMgr.getSelectionModel().select(null);
 
-        chkCreateNew.setSelected(false);
+        chkCreateNew.setSelected(resetCreateNew?false:true);
         chkEligibleForCompPlan.setSelected(false);
         chkInActive.setSelected(false);
     }
@@ -269,5 +272,9 @@ public class SalesHierarchyController {
             else
                 AppDialogHelper.showErrorDialog(Arrays.asList("Unable to save Sale Hierarchy."));
         }
+    }
+
+    public void createNewOneClicked() {
+        resetView(false);
     }
 }
